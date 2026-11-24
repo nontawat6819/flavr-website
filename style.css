@@ -1,0 +1,1472 @@
+
+/* =========================================
+   FLAVR
+   EDITORIAL BRAND WEBSITE
+   MAIN STYLESHEET
+========================================= */
+
+
+/* =========================================
+   01. RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background-color: #F3F0E9;
+    color: #22231F;
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================
+   02. DESIGN VARIABLES
+========================================= */
+
+:root {
+
+    --color-bg: #F3F0E9;
+    --color-text: #22231F;
+    --color-accent: #A83E32;
+    --color-muted: #77776E;
+    --color-secondary: #E8E3D9;
+
+    --font-heading: "Manrope", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+
+    --container-padding: 8%;
+
+    --transition: 0.3s ease;
+
+}
+
+
+/* =========================================
+   03. GLOBAL TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+}
+
+::selection {
+    background: var(--color-accent);
+    color: white;
+}
+
+
+/* =========================================
+   04. NAVIGATION
+========================================= */
+
+.navbar {
+
+    width: 100%;
+    min-height: 90px;
+
+    padding: 0 var(--container-padding);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--color-bg);
+
+    border-bottom: 1px solid rgba(34, 35, 31, 0.12);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
+.logo {
+
+    font-family: var(--font-heading);
+
+    font-size: 34px;
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+}
+
+.logo span {
+    color: var(--color-accent);
+}
+
+.nav-menu {
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+.nav-link {
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+
+    color: var(--color-text);
+
+    transition: color var(--transition);
+
+    position: relative;
+
+}
+
+.nav-link:hover,
+.nav-link.active {
+
+    color: var(--color-accent);
+
+}
+
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -7px;
+    left: 0;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--color-accent);
+
+    transition: width var(--transition);
+
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+
+    width: 100%;
+
+}
+
+
+/* MOBILE MENU BUTTON */
+
+.menu-toggle {
+
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   05. HERO SECTION
+========================================= */
+
+.hero {
+
+    min-height: 85vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    padding: 70px var(--container-padding);
+
+    gap: 60px;
+
+}
+
+
+/* HERO TEXT */
+
+.hero-content {
+    max-width: 550px;
+}
+
+.eyebrow {
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    color: var(--color-accent);
+
+    margin-bottom: 35px;
+
+}
+
+.hero-content h1 {
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(55px, 6vw, 90px);
+
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    letter-spacing: -5px;
+
+}
+
+.hero-content h1 span {
+
+    color: var(--color-accent);
+
+}
+
+.hero-description {
+
+    max-width: 370px;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    color: var(--color-muted);
+
+    margin-top: 30px;
+    margin-bottom: 35px;
+
+}
+
+
+/* PRIMARY BUTTON */
+
+.primary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 16px 25px;
+
+    background: var(--color-text);
+
+    color: var(--color-bg);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    transition: background var(--transition);
+
+}
+
+.primary-button:hover {
+
+    background: var(--color-accent);
+
+}
+
+.primary-button span {
+    font-size: 15px;
+}
+
+
+/* HERO PRODUCT VISUAL */
+
+.hero-visual {
+    position: relative;
+}
+
+.hero-image {
+
+    min-height: 530px;
+
+    background: #DCD6C9;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.image-index {
+
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+}
+
+
+/* CSS BOTTLE */
+
+.bottle {
+
+    width: 165px;
+    height: 340px;
+
+    background: linear-gradient(
+        90deg,
+        #873126,
+        #B94F3F,
+        #92382E
+    );
+
+    border-radius: 35px 35px 22px 22px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 20px 25px 35px rgba(34,35,31,0.18);
+
+    transition: transform 0.5s ease;
+
+}
+
+.bottle:hover {
+    transform: translateY(-10px) rotate(-2deg);
+}
+
+.bottle-neck {
+
+    position: absolute;
+
+    width: 65px;
+    height: 35px;
+
+    background: #A83E32;
+
+    top: -25px;
+
+    border-radius: 8px 8px 0 0;
+
+}
+
+.bottle-cap {
+
+    position: absolute;
+
+    width: 72px;
+    height: 23px;
+
+    background: #D5B77C;
+
+    top: -45px;
+
+    border-radius: 5px;
+
+}
+
+.bottle-label {
+
+    width: 100%;
+
+    padding: 25px 10px;
+
+    background: #F3F0E9;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #22231F;
+
+}
+
+.bottle-logo {
+
+    font-family: var(--font-heading);
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+}
+
+.bottle-line {
+
+    width: 35px;
+    height: 1px;
+
+    background: #A83E32;
+
+}
+
+.bottle-label small {
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+.visual-caption {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+.hero-index {
+
+    text-align: right;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--color-muted);
+
+    margin-top: 15px;
+
+}
+
+
+/* =========================================
+   06. SECTION COMMON STYLE
+========================================= */
+
+.section-label {
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    color: var(--color-muted);
+
+    margin-bottom: 35px;
+
+}
+
+
+/* =========================================
+   07. OUR STORY
+========================================= */
+
+.story {
+
+    background: var(--color-secondary);
+
+    padding: 120px var(--container-padding);
+
+}
+
+.story-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.story-side-note {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--color-muted);
+
+}
+
+.story-content {
+
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    align-items: end;
+
+    gap: 60px;
+
+    margin: 100px 0;
+
+}
+
+.story h2 {
+
+    font-size: clamp(55px, 8vw, 110px);
+
+    line-height: 1;
+
+    letter-spacing: -7px;
+
+}
+
+.story h2 span {
+
+    color: var(--color-accent);
+
+}
+
+.story-description {
+
+    max-width: 390px;
+
+    padding-bottom: 10px;
+
+}
+
+.story-description p {
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    color: var(--color-muted);
+
+    margin-bottom: 20px;
+
+}
+
+.story-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid #BEB8AD;
+
+    padding-top: 25px;
+
+}
+
+.story-bottom span {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   08. COLLECTION
+========================================= */
+
+.collection {
+
+    padding: 120px var(--container-padding);
+
+}
+
+.collection-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 90px;
+
+}
+
+.collection-header h2 {
+
+    font-size: clamp(45px, 6vw, 72px);
+
+    letter-spacing: -4px;
+
+}
+
+.collection-intro {
+
+    max-width: 320px;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    color: var(--color-muted);
+
+}
+
+
+/* CATEGORY */
+
+.collection-category {
+
+    margin-bottom: 85px;
+
+}
+
+.category-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid #D5D0C6;
+
+    padding-bottom: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+.category-heading h3 {
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+}
+
+.category-heading span {
+
+    font-size: 10px;
+
+    color: var(--color-muted);
+
+    letter-spacing: 1px;
+
+}
+
+
+/* PRODUCT GRID */
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+.product-card {
+    min-width: 0;
+}
+
+.product-image {
+
+    height: 350px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    transition: transform 0.4s ease;
+
+}
+
+.product-image p {
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(20px, 2.5vw, 28px);
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-align: center;
+
+}
+
+.product-number {
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    font-size: 10px;
+
+}
+
+.product-tag {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+.product-card:hover .product-image {
+
+    transform: translateY(-5px);
+
+}
+
+.product-card h4 {
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+
+}
+
+.product-card > p {
+
+    font-size: 11px;
+
+    color: var(--color-muted);
+
+    line-height: 1.7;
+
+}
+
+
+/* PRODUCT COLORS */
+
+.product-red {
+
+    background: #B95A4A;
+
+    color: #F3F0E9;
+
+}
+
+.product-yellow {
+
+    background: #E8C878;
+
+    color: #373126;
+
+}
+
+.product-orange {
+
+    background: #D9954E;
+
+    color: #373126;
+
+}
+
+.product-pink {
+
+    background: #D98C9D;
+
+    color: #542F3C;
+
+}
+
+.product-green {
+
+    background: #9AA989;
+
+    color: #283B2C;
+
+}
+
+.product-darkred {
+
+    background: #7F3738;
+
+    color: #F3F0E9;
+
+}
+
+
+/* =========================================
+   09. INGREDIENTS
+========================================= */
+
+.ingredients {
+
+    background: var(--color-secondary);
+
+    padding: 120px var(--container-padding);
+
+}
+
+.ingredients-header {
+
+    margin-bottom: 70px;
+
+}
+
+.ingredients-header h2 {
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    line-height: 1;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 30px;
+
+}
+
+.ingredients-header h2 span {
+
+    color: var(--color-accent);
+
+}
+
+.ingredients-intro {
+
+    max-width: 390px;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    color: var(--color-muted);
+
+}
+
+
+/* INGREDIENT GRID */
+
+.ingredient-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+}
+
+.ingredient-card {
+
+    min-height: 340px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition: transform 0.4s ease;
+
+}
+
+.ingredient-card:hover {
+
+    transform: translateY(-7px);
+
+}
+
+.ingredient-card span {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+.ingredient-card h3 {
+
+    font-size: 26px;
+
+    letter-spacing: -1px;
+
+}
+
+.ingredient-card p {
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* INGREDIENT COLORS */
+
+.ingredient-beet {
+
+    background: #A84943;
+
+    color: #F3F0E9;
+
+}
+
+.ingredient-citrus {
+
+    background: #E5B65D;
+
+    color: #3C3327;
+
+}
+
+.ingredient-tropical {
+
+    background: #DDA16A;
+
+    color: #443326;
+
+}
+
+.ingredient-green {
+
+    background: #A5AE91;
+
+    color: #303B2D;
+
+}
+
+.ingredients-note {
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-top: 50px;
+
+    color: var(--color-muted);
+
+}
+
+
+/* =========================================
+   10. CONTACT
+========================================= */
+
+.contact {
+
+    background: var(--color-text);
+
+    color: var(--color-bg);
+
+    padding: 120px var(--container-padding);
+
+}
+
+.contact .section-label {
+
+    color: #AAA69D;
+
+}
+
+.contact-content {
+
+    padding: 80px 0;
+
+}
+
+.contact h2 {
+
+    font-size: clamp(55px, 9vw, 110px);
+
+    line-height: 1;
+
+    letter-spacing: -7px;
+
+    margin-bottom: 35px;
+
+}
+
+.contact h2 span {
+
+    color: #D9954E;
+
+}
+
+.contact-content > p {
+
+    color: #AAA69D;
+
+    font-size: 14px;
+
+    margin-bottom: 35px;
+
+}
+
+.contact-button {
+
+    display: inline-block;
+
+    padding: 17px 25px;
+
+    border: 1px solid #AAA69D;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    transition: all var(--transition);
+
+}
+
+.contact-button:hover {
+
+    background: var(--color-bg);
+
+    color: var(--color-text);
+
+}
+
+.contact-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid #55564F;
+
+    padding-top: 25px;
+
+}
+
+.contact-bottom span {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #AAA69D;
+
+}
+
+
+/* =========================================
+   11. FOOTER
+========================================= */
+
+.footer {
+
+    background: var(--color-text);
+
+    color: var(--color-bg);
+
+    padding: 35px var(--container-padding);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-top: 1px solid #55564F;
+
+}
+
+.footer p {
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #AAA69D;
+
+}
+
+.back-to-top {
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    transition: color var(--transition);
+
+}
+
+.back-to-top:hover {
+
+    color: #D9954E;
+
+}
+
+
+/* =========================================
+   12. SCROLL ANIMATION
+========================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================
+   13. RESPONSIVE : TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+
+    /* NAVIGATION */
+
+    .navbar {
+
+        min-height: 75px;
+
+        padding: 15px 6%;
+
+        flex-wrap: wrap;
+
+    }
+
+    .menu-toggle {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 6px;
+
+        padding: 10px;
+
+    }
+
+    .menu-toggle span {
+
+        width: 23px;
+
+        height: 1px;
+
+        background: var(--color-text);
+
+        transition: 0.3s;
+
+    }
+
+    .nav-menu {
+
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        padding: 20px 0;
+
+    }
+
+    .nav-menu.open {
+
+        display: flex;
+
+    }
+
+
+    /* HERO */
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        padding: 70px 6%;
+
+        gap: 50px;
+
+    }
+
+    .hero-content h1 {
+
+        font-size: 65px;
+
+        letter-spacing: -4px;
+
+    }
+
+    .hero-image {
+
+        min-height: 430px;
+
+    }
+
+
+    /* STORY */
+
+    .story-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin: 60px 0;
+
+    }
+
+    .story h2 {
+
+        letter-spacing: -4px;
+
+    }
+
+    .story-side-note {
+
+        display: none;
+
+    }
+
+
+    /* COLLECTION */
+
+    .collection-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+        margin-bottom: 55px;
+
+    }
+
+    .product-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+
+    }
+
+    .product-image {
+
+        height: 280px;
+
+    }
+
+
+    /* INGREDIENTS */
+
+    .ingredient-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .ingredient-card {
+
+        min-height: 250px;
+
+    }
+
+
+    /* CONTACT */
+
+    .contact h2 {
+
+        letter-spacing: -4px;
+
+    }
+
+    .contact-bottom {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+
+        flex-wrap: wrap;
+
+        gap: 20px;
+
+    }
+
+}
+
+
+/* =========================================
+   14. RESPONSIVE : MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+
+    .hero-content h1 {
+
+        font-size: 55px;
+
+    }
+
+    .hero-image {
+
+        min-height: 380px;
+
+    }
+
+    .story-bottom span {
+
+        font-size: 8px;
+
+        letter-spacing: 1px;
+
+    }
+
+    .category-heading h3 {
+
+        font-size: 11px;
+
+    }
+
+    .category-heading span {
+
+        font-size: 8px;
+
+    }
+
+    .product-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .product-image {
+
+        height: 320px;
+
+    }
+
+    .ingredient-card {
+
+        min-height: 210px;
+
+        padding: 15px;
+
+    }
+
+    .ingredient-card h3 {
+
+        font-size: 21px;
+
+    }
+
+    .ingredients-header h2 {
+
+        letter-spacing: -4px;
+
+    }
+
+    .contact h2 {
+
+        font-size: 52px;
+
+    }
+
+    .footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+/* =========================================
+   15. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+    .reveal {
+
+        opacity: 1;
+
+        transform: none;
+
+    }
+
+}
